@@ -4,7 +4,9 @@
 
 package maps
 
-import "reflect"
+import (
+	"reflect"
+)
 
 func NewEnhancedMap[K comparable, V any]() IMap[K, V] {
 	return &EnhancedMap[K, V]{
