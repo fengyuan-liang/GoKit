@@ -6,18 +6,9 @@ package maps
 
 import "GoKit/collection"
 
-func NewTreeMap[K comparable, V any](options ...TreeMapOpt) IMap[K, V] {
-	opts := new(TreeMapOptions)
-	for _, option := range options {
-		option(opts)
-	}
-	return &TreeMap[K, V]{}
+func NewTreeMap[K comparable, V any]() IMap[K, V] {
+	return new(TreeMap[K, V])
 }
-
-type TreeMapOptions struct {
-}
-
-type TreeMapOpt func(options *TreeMapOptions)
 
 func NewTreeMapWithComparator[K comparable, V any](comparator collection.Compare[K]) IMap[K, V] {
 	return &TreeMap[K, V]{
@@ -39,6 +30,11 @@ func (t TreeMap[K, V]) Put(k K, v V) {
 }
 
 func (t TreeMap[K, V]) Get(k K) (v V, ok bool) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (t TreeMap[K, V]) MustGet(k K) (v V) {
 	//TODO implement me
 	panic("implement me")
 }
