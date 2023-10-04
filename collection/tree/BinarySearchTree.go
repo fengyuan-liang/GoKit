@@ -4,10 +4,12 @@
 
 package tree
 
-import "math"
+import (
+	"math"
+)
 
 func NewBstTree[E comparable]() ITree[E] {
-	return &BinarySearchTree[E]{}
+	return new(BinarySearchTree[E])
 }
 
 type BinarySearchTree[E comparable] struct {

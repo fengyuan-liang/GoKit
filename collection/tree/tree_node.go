@@ -5,7 +5,7 @@
 package tree
 
 // Node of tree
-type Node[T comparable] struct {
+type Node[T any] struct {
 	element T
 	left    *Node[T]
 	right   *Node[T]
