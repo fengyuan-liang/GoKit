@@ -4,7 +4,7 @@
 
 package collection
 
-// Compare is a function type used to define a comparison function in GoKit collection.
+// CompareFunc is a function type used to define a comparison function in GoKit collection.
 // It imposes a total ordering on a collection of objects.
 // Comparators can be passed to sorting methods to provide precise control over the sort order.
 // Comparators can also be used to control the order of certain data structures,
@@ -34,7 +34,13 @@ package collection
 // sort.Slice(someInts, func(i, j int) bool {
 // return compareFn(someInts[i], someInts[j]) < 0
 // })
-type Compare[T comparable] func(o1 T, o2 T) int
+type CompareFunc[T any] func(o1 T, o2 T) int
+
+// Comparable is a function type used to define a comparison interface in GoKit collection.
+type Comparable[E any] interface {
+	// CompareTo define compare rule
+	CompareTo(element E) int
+}
 
 // Iterable represents a collection that can be iterated over.
 type Iterable interface {
@@ -49,4 +55,8 @@ type Iterator interface {
 
 	// Value returns the current value of the iterator.
 	Value() interface{}
+}
+
+type ToString interface {
+	ToString() string
 }
