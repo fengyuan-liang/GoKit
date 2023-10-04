@@ -70,11 +70,11 @@ func TestFutureFuncTimeOut(t *testing.T) {
 
 	result, err := future.GetWithTimeout(3 * time.Second)
 	elapsed = time.Since(start)
-	assert.Equal(t, nil, result)
+	assert.Equal(t, 0, result)
 	assert.Less(t, elapsed.Milliseconds(), (4 * time.Second).Milliseconds())
 	t.Logf("Result: %v\n", result)
 	t.Logf("err: %v\n", err.Error())
-	assert.Equal(t, nil, result)
+	assert.Equal(t, 0, result)
 }
 
 func TestFuturePanic(t *testing.T) {

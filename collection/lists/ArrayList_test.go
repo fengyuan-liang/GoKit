@@ -98,9 +98,3 @@ func TestNewArrayList_Contains_struct(t *testing.T) {
 	assert.Equal(t, true, list.Contains(p))
 	assert.Equal(t, false, list.Contains(new(Person)))
 }
-
-func TestName(t *testing.T) {
-	var a []int
-	a[9] = 1
-	a = append(a, 11)
-}
