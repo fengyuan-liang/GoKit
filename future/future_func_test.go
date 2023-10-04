@@ -80,7 +80,6 @@ func TestFutureFuncTimeOut(t *testing.T) {
 func TestFuturePanic(t *testing.T) {
 	futureFunc := FutureFunc[int](func() int {
 		panic("panic")
-		return 10
 	})
 	if _, err := futureFunc.Get(); err != nil {
 		t.Logf("is ErrPanic:%v", err.Error())

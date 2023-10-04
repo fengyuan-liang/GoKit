@@ -10,7 +10,7 @@ func NewTreeMap[K comparable, V any]() IMap[K, V] {
 	return new(TreeMap[K, V])
 }
 
-func NewTreeMapWithComparator[K comparable, V any](comparator collection.Compare[K]) IMap[K, V] {
+func NewTreeMapWithComparator[K comparable, V any](comparator collection.CompareFunc[K]) IMap[K, V] {
 	return &TreeMap[K, V]{
 		comparator: comparator,
 	}
@@ -21,7 +21,7 @@ func NewTreeMapWithComparator[K comparable, V any](comparator collection.Compare
 // keys, or by a Comparator provided at map creation time,
 // depending on which constructor is used.
 type TreeMap[K comparable, V any] struct {
-	comparator collection.Compare[K]
+	comparator collection.CompareFunc[K]
 }
 
 func (t TreeMap[K, V]) Put(k K, v V) {
