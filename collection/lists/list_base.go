@@ -5,6 +5,8 @@
 package lists
 
 import (
+	"GoKit/collection"
+	"GoKit/collection/stream"
 	"fmt"
 )
 
@@ -37,4 +39,61 @@ func (b *BaseList[E]) rangeCheck(index int) {
 	if index < 0 || index > b.size-1 {
 		panic(fmt.Sprintf("illegal index, index=%d, actual size=%d", index, b.size))
 	}
+}
+
+// ================= abstract ====================
+
+func (b *BaseList[E]) Stream() stream.IStream[E, E] {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) Contains(element E) bool {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) Add(element E) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) AddAll(elements []E) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) AddAtIndex(index int, element E) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) Get(index int) E {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) Set(index int, element E) E {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) Remove(index int) (oldElement E) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) IndexOf(element E) int {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) ToSlice() []E {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (b *BaseList[E]) Sort(compareFunc ...collection.CompareFunc[E]) {
+	//TODO implement me
+	panic("implement me")
 }

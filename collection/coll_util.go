@@ -92,3 +92,48 @@ func CanCompare[E any](e1 E, e2 E) bool {
 	}
 	return true
 }
+
+func Sort[T any](slice []T, compareFunc ...CompareFunc[T]) {
+	if len(compareFunc) != 0 {
+		QuickSort(slice, compareFunc[0])
+		return
+	}
+	QuickSort(slice, func(o1, o2 T) int {
+		return Compare(o1, o2)
+	})
+}
+
+// QuickSort quick sort
+func QuickSort[T any](slice []T, compareFunc func(o1, o2 T) int) {
+	quickSort(slice, compareFunc, 0, len(slice)-1)
+}
+
+func quickSort[T any](slice []T, compareFunc func(o1, o2 T) int, low, high int) {
+	if low < high {
+		pivot := partition(slice, compareFunc, low, high)
+		quickSort(slice, compareFunc, low, pivot-1)
+		quickSort(slice, compareFunc, pivot+1, high)
+	}
+}
+
+func partition[T any](slice []T, compareFunc func(o1, o2 T) int, low, high int) int {
+	pivotIndex := low
+	pivotValue := slice[high]
+
+	for j := low; j < high; j++ {
+		if compareFunc(slice[j], pivotValue) <= 0 {
+			swap(slice, j, pivotIndex)
+			pivotIndex++
+		}
+	}
+
+	swap(slice, pivotIndex, high)
+	return pivotIndex
+}
+
+func swap[T any](slice []T, i, j int) {
+	var tmp T
+	tmp = slice[i]
+	slice[i] = slice[j]
+	slice[j] = tmp
+}

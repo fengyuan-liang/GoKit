@@ -4,15 +4,24 @@
 
 package lists
 
-import "GoKit/collection"
+import (
+	"GoKit/collection"
+	"GoKit/collection/stream"
+)
 
 const (
 	DefaultCapacity = 10
 	ElementNotFound = -1
 )
 
+type ToStream[In any, Out any] interface {
+	// Stream as stream
+	Stream() stream.IStream[In, Out]
+}
+
 type IList[E any] interface {
 	collection.ToString
+	ToStream[E, E]
 	// Size Returns the number of elements in the list.
 	Size() int
 	// IsEmpty Checks if the list is empty.
@@ -21,6 +30,8 @@ type IList[E any] interface {
 	Contains(element E) bool
 	// Add Adds an element to the end of the list.
 	Add(element E)
+	// AddAll add slice
+	AddAll(elements []E)
 	// AddAtIndex Inserts an element at the specified index.
 	AddAtIndex(index int, element E)
 	// Get Returns the element at the specified index.
@@ -33,4 +44,12 @@ type IList[E any] interface {
 	IndexOf(element E) int
 	// Clear Removes all elements from the list.
 	Clear()
+	// ToSlice list to slice
+	ToSlice() []E
+	// Sort  pass in a comparator or implement the compare interface
+	//
+	// example:
+	//
+	// list.sort(func(o1, o2 int) { return o1-o2 })
+	Sort(compareFunc ...collection.CompareFunc[E])
 }

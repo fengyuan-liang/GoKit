@@ -5,6 +5,8 @@
 package lists
 
 import (
+	"GoKit/collection"
+	"GoKit/utils"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -60,6 +62,7 @@ func TestArrayList_Add(t *testing.T) {
 		list.Add(i)
 	}
 	t.Logf("%v", list.ToString())
+	t.Logf("%v", utils.ObjToJsonStr(list.ToSlice()))
 	assert.Equal(t, 100, list.Size())
 }
 
@@ -97,4 +100,29 @@ func TestNewArrayList_Contains_struct(t *testing.T) {
 	list.Add(&Person{Name: "王五", Age: 20})
 	assert.Equal(t, true, list.Contains(p))
 	assert.Equal(t, false, list.Contains(new(Person)))
+}
+
+func TestArrayList_Stream(t *testing.T) {
+	list := AsList(11, 2, 3, 4).Stream().Filter(func(ele int) bool {
+		return ele%2 == 0
+	}).Map(func(ele int) int {
+		return ele * 2
+	}).Sort(func(o1 int, o2 int) int {
+		return o1 - o2
+	}).CollectToSlice()
+	t.Logf("%v", list)
+}
+
+func TestArrayList_Sort(t *testing.T) {
+	list := NewArrayList[*Person]()
+	list.Add(&Person{Name: "张三", Age: 19})
+	list.Add(&Person{Name: "李四", Age: 18})
+	list.Add(&Person{Name: "王五", Age: 20})
+	deepCopySlice := utils.DeepCopySlice(list.ToSlice())
+	list.Sort()
+	t.Logf("%v", utils.ObjToJsonStr(list.ToSlice()))
+	collection.Sort(deepCopySlice, func(o1 *Person, o2 *Person) int {
+		return o1.Age - o2.Age
+	})
+	t.Logf("%v", utils.ObjToJsonStr(deepCopySlice))
 }

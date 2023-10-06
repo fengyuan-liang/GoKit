@@ -6,6 +6,7 @@ package lists
 
 import (
 	"GoKit/collection"
+	"GoKit/collection/stream"
 	"fmt"
 	"strings"
 )
@@ -37,6 +38,11 @@ func (a *ArrayList[E]) Contains(element E) bool {
 // Add appends the element to the end of the ArrayList.
 func (a *ArrayList[E]) Add(element E) {
 	a.AddAtIndex(a.size, element)
+}
+
+func (a *ArrayList[E]) AddAll(elements []E) {
+	a.elements = append(a.elements, elements...)
+	a.size += len(elements)
 }
 
 // AddAtIndex inserts the element at the specified index in the ArrayList.
@@ -122,4 +128,16 @@ func (a *ArrayList[E]) ToString() string {
 	}
 	builder.WriteString(fmt.Sprintf("%v]", a.elements[a.size-1]))
 	return builder.String()
+}
+
+func (a *ArrayList[E]) ToSlice() []E {
+	return a.elements[:a.Size()]
+}
+
+func (a *ArrayList[E]) Stream() stream.IStream[E, E] {
+	return stream.Of[E, E](a.elements)
+}
+
+func (a *ArrayList[E]) Sort(compareFunc ...collection.CompareFunc[E]) {
+	collection.Sort(a.ToSlice(), compareFunc...)
 }

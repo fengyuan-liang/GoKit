@@ -4,10 +4,9 @@
 
 package lists
 
-func AsList[T any](arr ...T) IList[T] {
-	list := NewArrayList[T]()
-	for _, t := range arr {
-		list.Add(t)
-	}
-	return list
+import "testing"
+
+func TestAsList(t *testing.T) {
+	list := AsList(1, 2, 3, 4, 5)
+	t.Logf("%v", list.ToSlice())
 }

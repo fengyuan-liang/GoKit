@@ -22,6 +22,11 @@ func (l *LinkedList[E]) Add(element E) {
 	panic("implement me")
 }
 
+func (l *LinkedList[E]) AddAll(elements []E) {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (l *LinkedList[E]) AddAtIndex(index int, element E) {
 	//TODO implement me
 	panic("implement me")
@@ -53,6 +58,11 @@ func (l *LinkedList[E]) Clear() {
 }
 
 func (l *LinkedList[E]) ToString() string {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (l *LinkedList[E]) ToSlice() []E {
 	//TODO implement me
 	panic("implement me")
 }
