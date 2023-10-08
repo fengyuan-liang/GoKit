@@ -1,8 +1,6 @@
-// Copyright 2023 QINIU. All rights reserved
-// @Description: 运行出错的报警
-// @Version: 1.0.0
-// @Date: 2023/08/17 10:27
-// @Author: liangfengyuan@qiniu.com
+// Copyright The GoKit authors. All rights reserved.
+// Use of this source code is governed by a MIT style
+// license that can be found in the LICENSE file.
 
 package utils
 

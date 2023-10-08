@@ -14,6 +14,8 @@ type IMap[K comparable, V any] interface {
 	// Put inserts a key-value pair into the map.
 	Put(k K, v V)
 
+	PutAll(subMap map[K]V)
+
 	// Get retrieves the value associated with the specified key from the map.
 	// It returns the value and true if the key is found; otherwise, it returns the zero value of V and false.
 	Get(k K) (v V, ok bool)
@@ -38,6 +40,8 @@ type IMap[K comparable, V any] interface {
 	// Size returns the number of key-value pairs in the map.
 	Size() int
 
+	IsEmpty() bool
+
 	// ForEach applies the specified function to each key-value pair in the map.
 	ForEach(f func(K, V))
 
@@ -48,4 +52,6 @@ type IMap[K comparable, V any] interface {
 	// ContainsValue checks if the map contains the specified value.
 	// It returns true if the value is found; otherwise, it returns false.
 	ContainsValue(value V) bool
+
+	RawMap() map[K]V
 }

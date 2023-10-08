@@ -11,18 +11,25 @@ import (
 // NewEnhancedMap creates and returns a new instance of the EnhancedMap.
 func NewEnhancedMap[K comparable, V any]() IMap[K, V] {
 	return &EnhancedMap[K, V]{
-		m: map[K]V{},
+		baseMap[K, V]{m: map[K]V{}},
 	}
 }
 
 // EnhancedMap is a map implementation that satisfies the IMap interface.
 type EnhancedMap[K comparable, V any] struct {
-	m map[K]V
+	baseMap[K, V]
 }
 
 // Put inserts a key-value pair into the map.
 func (m *EnhancedMap[K, V]) Put(k K, v V) {
 	m.m[k] = v
+}
+
+// PutAll put by raw map
+func (m *EnhancedMap[K, V]) PutAll(subMap map[K]V) {
+	for k, v := range subMap {
+		m.Put(k, v)
+	}
 }
 
 // Get retrieves the value associated with the specified key from the map.

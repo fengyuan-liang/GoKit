@@ -5,6 +5,7 @@
 package stream
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -16,5 +17,5 @@ func TestStream_Map(t *testing.T) {
 	}).Map(func(element int) int {
 		return element * 2
 	}).CollectToSlice()
-	t.Logf("%v", list)
+	fmt.Printf("%v\n", list)
 }

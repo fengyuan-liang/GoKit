@@ -29,6 +29,11 @@ func (t TreeMap[K, V]) Put(k K, v V) {
 	panic("implement me")
 }
 
+func (t TreeMap[K, V]) PutAll(subMap map[K]V) {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (t TreeMap[K, V]) Get(k K) (v V, ok bool) {
 	//TODO implement me
 	panic("implement me")
@@ -64,6 +69,11 @@ func (t TreeMap[K, V]) Size() int {
 	panic("implement me")
 }
 
+func (t TreeMap[K, V]) IsEmpty() bool {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (t TreeMap[K, V]) ForEach(f func(K, V)) {
 	//TODO implement me
 	panic("implement me")
@@ -75,6 +85,11 @@ func (t TreeMap[K, V]) ContainsKey(k K) bool {
 }
 
 func (t TreeMap[K, V]) ContainsValue(value V) bool {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (t TreeMap[K, V]) RawMap() map[K]V {
 	//TODO implement me
 	panic("implement me")
 }
