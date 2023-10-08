@@ -45,7 +45,7 @@ func TestFutureFunc(t *testing.T) {
 
 	result, _ := future.Get()
 	elapsed = time.Since(start)
-	assert.Less(t, (5 * time.Second).Milliseconds(), elapsed.Milliseconds())
+	assert.LessOrEqual(t, (5 * time.Second).Milliseconds(), elapsed.Milliseconds())
 	assert.Equal(t, 100, result)
 	t.Logf("Result: %v\n", result)
 

@@ -1,5 +1,8 @@
 # GoKit
-GoKit: is your ultimate toolbox of utilities for seamless development in Go 😉
+
+[简体中文](https://github.com/fengyuan-liang/GoKit/blob/master/README_ZH.md)
+
+GoKit is your ultimate toolbox of utilities for seamless development in Go 😉
 
 ## import
 
@@ -115,7 +118,7 @@ func TestSliceToMap(t *testing.T) {
 	p3 := &Person{ID: 3}
 	people := make([]*Person, 0)
 	people = append(people, p1, p2, p3)
-    // k:ID v:pe
+    // k:ID v:person
 	m := utils.SliceToMap(people, func(element *Person) int { return element.ID })
 	fmt.Printf("%v\n", utils.ObjToJsonStr(m.RawMap()))
 }
