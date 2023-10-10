@@ -1,6 +1,6 @@
 # GoKit
 
-[简体中文](https://github.com/fengyuan-liang/GoKit/blob/master/README_ZH.md)
+[简体中文](https://github.com/fengyuan-liang/GoKit/blob/main/README_ZH.md)
 
 GoKit is your ultimate toolbox of utilities for seamless development in Go 😉
 

@@ -11,10 +11,10 @@ go get github.com/fengyuan-liang/GoKit
 ## 1. collection
 
 - maps
-  - EnhancedMap：增强的原生Go map
+  - EnhancedMap：增强原生Go map
   - LinkedHashMap：LinkedHashMap是将哈希表和链表的特性结合在一起的数据结构，`根据插入顺序提供可预测的迭代顺序`。
   - HashMap：底层数据结构低于红黑树的映射。
-  - TreeMap：Java中的TreeMap是一种数据结构，它允许按键的排序顺序存储键值对，并提供插入、删除和检索等操作，时间复杂度为对数级别。
+  - TreeMap：TreeMap是一种基于红黑树数据结构，它允许按键的排序顺序存储键值对，并提供插入、删除和检索等操作，时间复杂度为对数级别。
 - lists
   - ArrayList：增强Go切片
   - LinkedList：LinkedList是一种使用双向链表作为其底层结构来实现元素序列的数据结构。
