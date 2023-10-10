@@ -12,6 +12,6 @@ type IStream[In any, Out any] interface {
 	CollectToSlice() []Out
 	ForEach(action func(ele Out))
 	Sort(compareFunc ...collection.CompareFunc[Out]) IStream[In, Out]
-	//Limit(cnt int)
-	//Skip(cnt int)
+	Limit(cnt int) IStream[In, Out]
+	Skip(cnt int) IStream[In, Out]
 }

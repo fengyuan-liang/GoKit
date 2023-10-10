@@ -10,12 +10,11 @@ import (
 )
 
 func TestStream_Map(t *testing.T) {
-	list := Of[int, int]([]int{1, 2, 3, 4}).Filter(func(element int) bool {
-		return element%2 == 0
-	}).Filter(func(element int) bool {
-		return element%2 == 0
-	}).Map(func(element int) int {
-		return element * 2
-	}).CollectToSlice()
+	list := Of[int, int]([]int{1, 2, 3, 4, 5, 6, 7, 8}).
+		Filter(func(element int) bool { return element%2 == 0 }).
+		Skip(1).
+		Limit(10).
+		Map(func(element int) int { return element * 2 }).
+		CollectToSlice()
 	fmt.Printf("%v\n", list)
 }

@@ -6,6 +6,7 @@ package stream
 
 import (
 	"GoKit/collection"
+	"GoKit/utils"
 )
 
 type Stream[In any, Out any] struct {
@@ -17,7 +18,7 @@ type Stream[In any, Out any] struct {
 func (s *Stream[In, Out]) Filter(filterFunc func(ele In) bool) IStream[In, Out] {
 	filteredData := make([]In, 0)
 	for _, ele := range s.Data {
-		if !filterFunc(ele) {
+		if filterFunc(ele) {
 			filteredData = append(filteredData, ele)
 		}
 	}
@@ -70,5 +71,15 @@ func (s *Stream[In, Out]) Sort(compareFunc ...collection.CompareFunc[Out]) IStre
 	collection.QuickSort(s.outData, func(o1, o2 Out) int {
 		return collection.Compare(o1, o2)
 	})
+	return s
+}
+
+func (s *Stream[In, Out]) Limit(cnt int) IStream[In, Out] {
+	s.Data = s.Data[:utils.Min(cnt, len(s.Data))]
+	return s
+}
+
+func (s *Stream[In, Out]) Skip(cnt int) IStream[In, Out] {
+	s.Data = s.Data[utils.Min(cnt, len(s.Data)):]
 	return s
 }

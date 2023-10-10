@@ -55,22 +55,21 @@ example
 
 ```go
 func TestStream_Map(t *testing.T) {
-	list := stream.Of[int, int]([]int{1, 2, 3, 4}).Filter(func(element int) bool {
-		return element%2 == 0
-	}).Filter(func(element int) bool {
-		return element%2 == 0
-	}).Map(func(element int) int {
-		return element * 2
-	}).CollectToSlice()
-	t.Logf("%v", list)
+	list := Of[int, int]([]int{1, 2, 3, 4, 5, 6, 7, 8}).
+		Filter(func(element int) bool { return element%2 == 0 }).
+		Skip(1).
+		Limit(10).
+		Map(func(element int) int { return element * 2 }).
+		CollectToSlice()
+	t.Logf("%v\n", list)
 }
 ```
 
 ```shell
 $ go test -run TestStream_Map
-[2 6]
+[8 12 16]
 PASS
-ok      GoKit/collection/stream 0.164s
+ok      GoKit/collection/stream 0.00s
 ```
 
 ## 3. future
