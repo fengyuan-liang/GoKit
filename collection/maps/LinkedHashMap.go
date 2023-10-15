@@ -20,7 +20,7 @@ func NewLinkedHashMapWithRawMap[K comparable, V any](m map[K]V) IMap[K, V] {
 			m: make(map[K]V),
 		},
 	}
-	linkedHashMap.PutAll(m)
+	linkedHashMap.PutAll(nil)
 	return linkedHashMap
 }
 
@@ -36,9 +36,9 @@ func (m *LinkedHashMap[K, V]) Put(k K, v V) {
 	m.m[k] = v
 }
 
-func (m *LinkedHashMap[K, V]) PutAll(subMap map[K]V) {
-	for k, v := range subMap {
-		m.Put(k, v)
+func (m *LinkedHashMap[K, V]) PutAll(pairs []*Pair[K, V]) {
+	for _, p := range pairs {
+		m.Put(p.Key, p.Value)
 	}
 }
 

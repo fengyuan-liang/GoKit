@@ -54,7 +54,7 @@ func TestLinkedHashMap(t *testing.T) {
 		t.Errorf("Expected false, got true")
 	}
 
-	m.PutAll(map[string]int{"five": 5, "six": 6})
+	m.PutAll([]*Pair[string, int]{{"five", 5}, {"six", 6}})
 
 	if size := m.Size(); size != 4 {
 		t.Errorf("Expected size 4, got %d", size)

@@ -14,7 +14,7 @@ type IMap[K comparable, V any] interface {
 	// Put inserts a key-value pair into the map.
 	Put(k K, v V)
 
-	PutAll(subMap map[K]V)
+	PutAll(pairs []*Pair[K, V])
 
 	// Get retrieves the value associated with the specified key from the map.
 	// It returns the value and true if the key is found; otherwise, it returns the zero value of V and false.

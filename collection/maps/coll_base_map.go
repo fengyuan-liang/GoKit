@@ -6,7 +6,7 @@ package maps
 
 import "reflect"
 
-// baseMap 抽象map
+// baseMap abstract map
 type baseMap[K comparable, V any] struct {
 	m map[K]V
 }

@@ -68,9 +68,9 @@ func (s *Stream[In, Out]) Sort(compareFunc ...collection.CompareFunc[Out]) IStre
 		collection.QuickSort(s.outData, compareFunc[0])
 		return s
 	}
-	collection.QuickSort(s.outData, func(o1, o2 Out) int {
-		return collection.Compare(o1, o2)
-	})
+
+	collection.QuickSort(s.outData, func(o1, o2 Out) int { return collection.Compare(o1, o2) })
+
 	return s
 }
 

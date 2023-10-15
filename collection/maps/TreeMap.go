@@ -29,7 +29,7 @@ func (t TreeMap[K, V]) Put(k K, v V) {
 	panic("implement me")
 }
 
-func (t TreeMap[K, V]) PutAll(subMap map[K]V) {
+func (t TreeMap[K, V]) PutAll(pairs []*Pair[K, V]) {
 	//TODO implement me
 	panic("implement me")
 }

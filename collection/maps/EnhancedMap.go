@@ -26,9 +26,9 @@ func (m *EnhancedMap[K, V]) Put(k K, v V) {
 }
 
 // PutAll put by raw map
-func (m *EnhancedMap[K, V]) PutAll(subMap map[K]V) {
-	for k, v := range subMap {
-		m.Put(k, v)
+func (m *EnhancedMap[K, V]) PutAll(pairs []*Pair[K, V]) {
+	for _, p := range pairs {
+		m.Put(p.Key, p.Value)
 	}
 }
 
