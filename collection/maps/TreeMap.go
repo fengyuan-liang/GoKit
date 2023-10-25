@@ -4,7 +4,7 @@
 
 package maps
 
-import "GoKit/collection"
+import "github.com/fengyuan-liang/GoKit/collection"
 
 func NewTreeMap[K comparable, V any]() IMap[K, V] {
 	return new(TreeMap[K, V])

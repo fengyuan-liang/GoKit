@@ -5,8 +5,8 @@
 package tree
 
 import (
-	"GoKit/collection"
 	"fmt"
+	"github.com/fengyuan-liang/GoKit/collection"
 	"strings"
 )
 

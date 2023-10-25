@@ -5,9 +5,9 @@
 package lists
 
 import (
-	"GoKit/collection"
-	"GoKit/collection/stream"
 	"fmt"
+	"github.com/fengyuan-liang/GoKit/collection"
+	"github.com/fengyuan-liang/GoKit/collection/stream"
 )
 
 type BaseList[E any] struct {

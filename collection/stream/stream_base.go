@@ -5,8 +5,8 @@
 package stream
 
 import (
-	"GoKit/collection"
-	"GoKit/utils"
+	"github.com/fengyuan-liang/GoKit/collection"
+	"github.com/fengyuan-liang/GoKit/utils"
 )
 
 type Stream[In any, Out any] struct {

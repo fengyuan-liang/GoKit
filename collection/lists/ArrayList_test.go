@@ -5,8 +5,8 @@
 package lists
 
 import (
-	"GoKit/collection"
-	"GoKit/utils"
+	"github.com/fengyuan-liang/GoKit/collection"
+	"github.com/fengyuan-liang/GoKit/utils"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

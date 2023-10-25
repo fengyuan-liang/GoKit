@@ -5,7 +5,7 @@
 package utils
 
 import (
-	"GoKit/collection"
+	"github.com/fengyuan-liang/GoKit/collection"
 )
 
 func Max[T any](o1, o2 T) T {

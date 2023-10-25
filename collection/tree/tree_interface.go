@@ -5,7 +5,7 @@
 package tree
 
 import (
-	"GoKit/collection"
+	"github.com/fengyuan-liang/GoKit/collection"
 )
 
 // ITree represents the interface for a binary search tree

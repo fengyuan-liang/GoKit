@@ -1,4 +1,4 @@
-module GoKit
+module github.com/fengyuan-liang/GoKit
 
 go 1.19
 

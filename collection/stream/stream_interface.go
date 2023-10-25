@@ -4,7 +4,7 @@
 
 package stream
 
-import "GoKit/collection"
+import "github.com/fengyuan-liang/GoKit/collection"
 
 type IStream[In any, Out any] interface {
 	Filter(filterFunc func(ele In) bool) IStream[In, Out]

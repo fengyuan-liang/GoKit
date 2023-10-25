@@ -5,8 +5,8 @@
 package lists
 
 import (
-	"GoKit/collection"
-	"GoKit/collection/stream"
+	"github.com/fengyuan-liang/GoKit/collection"
+	"github.com/fengyuan-liang/GoKit/collection/stream"
 )
 
 const (

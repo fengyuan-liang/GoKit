@@ -4,7 +4,7 @@
 
 package utils
 
-import "GoKit/collection/maps"
+import "github.com/fengyuan-liang/GoKit/collection/maps"
 
 // SliceToMap Slice to Map
 //
