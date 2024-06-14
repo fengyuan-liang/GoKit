@@ -89,7 +89,7 @@ func (t TreeMap[K, V]) ContainsValue(value V) bool {
 	panic("implement me")
 }
 
-func (t TreeMap[K, V]) RawMap() map[K]V {
+func (t TreeMap[K, V]) Clear() {
 	//TODO implement me
 	panic("implement me")
 }

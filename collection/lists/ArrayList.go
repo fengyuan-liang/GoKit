@@ -17,9 +17,10 @@ func NewArrayList[E any]() IList[E] {
 }
 
 // NewArrayListWithCapacity creates a new ArrayList with the specified capacity.
-func NewArrayListWithCapacity[E any](capacity int) IList[E] {
+func NewArrayListWithCapacity[E any](expectedSize int) IList[E] {
+	checkNonnegative(expectedSize, "initialArraySize")
 	return &ArrayList[E]{
-		elements: make([]E, capacity),
+		elements: make([]E, expectedSize),
 	}
 }
 

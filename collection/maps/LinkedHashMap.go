@@ -13,7 +13,7 @@ func NewLinkedHashMap[K comparable, V any]() IMap[K, V] {
 	}
 }
 
-func NewLinkedHashMapWithRawMap[K comparable, V any](m map[K]V) IMap[K, V] {
+func NewLinkedHashMapWithRawMap[K comparable, V any]() IMap[K, V] {
 	linkedHashMap := &LinkedHashMap[K, V]{
 		keys: make([]K, 0),
 		baseMap: baseMap[K, V]{
@@ -81,4 +81,9 @@ func (m *LinkedHashMap[K, V]) ForEach(f func(K, V)) {
 	for _, k := range m.keys {
 		f(k, m.m[k])
 	}
+}
+
+func (m *LinkedHashMap[K, V]) Clear() {
+	m.m = make(map[K]V)
+	m.keys = make([]K, 0)
 }

@@ -5,6 +5,8 @@
 package maps
 
 import (
+	"encoding/json"
+	"fmt"
 	"testing"
 )
 
@@ -57,5 +59,21 @@ func TestEnhancedMap(t *testing.T) {
 		if k != "world" || v != 2 {
 			t.Errorf("ForEach failed. Got key: %v, value: %v, expected key: \"world\", value: 2", k, v)
 		}
+	})
+}
+
+func TestEnhancedMapSerialization(t *testing.T) {
+	// test Marshal
+	m := NewEnhancedMap[string, int]()
+	m.Put("one", 1)
+	m.Put("two", 2)
+	m.Put("three", 3)
+	data, _ := json.Marshal(m)
+	fmt.Printf("%v\n", string(data))
+	// test UnMarshal
+	m.Clear()
+	_ = json.Unmarshal([]byte(`{"one":1,"three":3,"two":2}`), &m)
+	m.ForEach(func(k string, v int) {
+		fmt.Printf("k:%v, v:%v\n", k, v)
 	})
 }

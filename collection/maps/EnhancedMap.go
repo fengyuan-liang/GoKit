@@ -15,6 +15,13 @@ func NewEnhancedMap[K comparable, V any]() IMap[K, V] {
 	}
 }
 
+// NewEnhancedMapWithExpectedSize creates and returns a new instance of the EnhancedMap.
+func NewEnhancedMapWithExpectedSize[K comparable, V any](expectedSize int) IMap[K, V] {
+	return &EnhancedMap[K, V]{
+		baseMap[K, V]{m: make(map[K]V, expectedSize)},
+	}
+}
+
 // EnhancedMap is a map implementation that satisfies the IMap interface.
 type EnhancedMap[K comparable, V any] struct {
 	baseMap[K, V]

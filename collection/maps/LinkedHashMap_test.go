@@ -5,6 +5,7 @@
 package maps
 
 import (
+	"encoding/json"
 	"fmt"
 	"testing"
 )
@@ -75,4 +76,20 @@ func TestLinkedHashMap(t *testing.T) {
 			t.Errorf("Expected %d, got %d", expectedValues[i], v)
 		}
 	}
+}
+
+func TestLinkedHashMap_Serialization(t *testing.T) {
+	// test Marshal
+	m := NewLinkedHashMap[string, int]()
+	m.Put("one", 1)
+	m.Put("two", 2)
+	m.Put("three", 3)
+	data, _ := json.Marshal(m)
+	fmt.Printf("%v\n", string(data))
+	// test UnMarshal
+	m.Clear()
+	_ = json.Unmarshal([]byte(`{"two":2,"one":1,"three":3}`), &m)
+	m.ForEach(func(k string, v int) {
+		fmt.Printf("k:%v, v:%v\n", k, v)
+	})
 }

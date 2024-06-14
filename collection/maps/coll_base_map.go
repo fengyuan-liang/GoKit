@@ -43,6 +43,6 @@ func (m *baseMap[K, V]) ContainsValue(value V) bool {
 	return false
 }
 
-func (m *baseMap[K, V]) RawMap() map[K]V {
-	return m.m
+func (m *baseMap[K, V]) Clear() {
+	m.m = make(map[K]V)
 }

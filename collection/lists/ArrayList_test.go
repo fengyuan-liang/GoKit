@@ -103,13 +103,11 @@ func TestNewArrayList_Contains_struct(t *testing.T) {
 }
 
 func TestArrayList_Stream(t *testing.T) {
-	list := AsList(11, 2, 3, 4).Stream().Filter(func(ele int) bool {
-		return ele%2 == 0
-	}).Map(func(ele int) int {
-		return ele * 2
-	}).Sort(func(o1 int, o2 int) int {
-		return o1 - o2
-	}).CollectToSlice()
+	list := AsList(11, 2, 3, 4).Stream().
+		Filter(func(ele int) bool { return ele%2 == 0 }).
+		Map(func(ele int) int { return ele * 2 }).
+		Sort(func(o1 int, o2 int) int { return o1 - o2 }).
+		CollectToSlice()
 	t.Logf("%v", list)
 }
 

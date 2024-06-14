@@ -43,7 +43,7 @@ type IMap[K comparable, V any] interface {
 	IsEmpty() bool
 
 	// ForEach applies the specified function to each key-value pair in the map.
-	ForEach(f func(K, V))
+	ForEach(f func(k K, v V))
 
 	// ContainsKey checks if the map contains the specified key.
 	// It returns true if the key is found; otherwise, it returns false.
@@ -53,5 +53,6 @@ type IMap[K comparable, V any] interface {
 	// It returns true if the value is found; otherwise, it returns false.
 	ContainsValue(value V) bool
 
-	RawMap() map[K]V
+	// Clear removes all elements from the map.
+	Clear()
 }
