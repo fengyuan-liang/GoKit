@@ -5,5 +5,6 @@
 package maps
 
 // HashMap Based on red and black trees
+// TODO
 type HashMap[K comparable, V any] struct {
 }

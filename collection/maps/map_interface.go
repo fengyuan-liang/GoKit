@@ -4,13 +4,19 @@
 
 package maps
 
+import "github.com/fengyuan-liang/GoKit/collection"
+
 // IMap represents a generic map interface with keys of type K and values of type V.
 // @see TreeMap
 // @see EnhancedMap enhance golang map
 // @see LinkedHashMap
+// @see SynchronizedMap thread-safe map
 // @since v1.0.0
 // @author eureka
 type IMap[K comparable, V any] interface {
+	collection.JSONSerializer
+	collection.JSONDeserializer
+
 	// Put inserts a key-value pair into the map.
 	Put(k K, v V)
 

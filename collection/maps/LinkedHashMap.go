@@ -13,15 +13,13 @@ func NewLinkedHashMap[K comparable, V any]() IMap[K, V] {
 	}
 }
 
-func NewLinkedHashMapWithRawMap[K comparable, V any]() IMap[K, V] {
-	linkedHashMap := &LinkedHashMap[K, V]{
+func NewLinkedHashMapWithExpectedSize[K comparable, V any](expectedSize int) IMap[K, V] {
+	return &LinkedHashMap[K, V]{
 		keys: make([]K, 0),
 		baseMap: baseMap[K, V]{
-			m: make(map[K]V),
+			m: make(map[K]V, capacity(expectedSize)),
 		},
 	}
-	linkedHashMap.PutAll(nil)
-	return linkedHashMap
 }
 
 type LinkedHashMap[K comparable, V any] struct {

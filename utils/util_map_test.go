@@ -22,7 +22,7 @@ func TestSliceToMap(t *testing.T) {
 	m := SliceToMap(people, func(element *Person) int {
 		return element.ID
 	})
-	fmt.Printf("%v\n", ObjToJsonStr(m.RawMap()))
+	fmt.Printf("%v\n", ObjToJsonStr(m))
 	v, _ := m.Get(1)
 	assert.Equal(t, p1, v)
 	v, _ = m.Get(2)
