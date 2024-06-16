@@ -47,7 +47,7 @@ func (m *LinkedHashMap[K, V]) GetOrDefault(k K, defaultValue V) (v V) {
 	return defaultValue
 }
 
-// Remove o(1)
+// Remove o(n)
 func (m *LinkedHashMap[K, V]) Remove(k K) {
 	delete(m.m, k)
 	for i, key := range m.keys {

@@ -17,7 +17,10 @@ go get github.com/fengyuan-liang/GoKit
   - LinkedHashMap：LinkedHashMap是将哈希表和链表的特性结合在一起的数据结构，`根据插入顺序提供可预测的迭代顺序`。
   - HashMap：底层数据结构低于红黑树的映射。
   - TreeMap：TreeMap是一种基于红黑树数据结构，它允许按键的排序顺序存储键值对，并提供插入、删除和检索等操作，时间复杂度为对数级别。
-  - SynchronizedMap：线程安全map装饰器，可以装饰所有map，使其线程安全的。maps下的每一种map都提供了线程安全的版本。
+  - SynchronizedMap：线程安全map装饰器，可以装饰所有map，使其线程安全。maps下的每一种map都提供了线程安全的版本。
+- sets
+  - HashSet：基于map实现的HaseSet
+
 - lists
   - ArrayList：增强Go切片
   - LinkedList：LinkedList是一种使用双向链表作为其底层结构来实现元素序列的数据结构。
