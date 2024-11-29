@@ -15,6 +15,7 @@ func TestStream_Map(t *testing.T) {
 		Skip(1).
 		Limit(10).
 		Map(func(element int) int { return element * 2 }).
+		Sort(func(o1 int, o2 int) int { return -1 }).
 		CollectToSlice()
 	fmt.Printf("%v\n", list)
 }

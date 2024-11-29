@@ -6,7 +6,7 @@ package stream
 
 import (
 	"github.com/fengyuan-liang/GoKit/collection"
-	"github.com/fengyuan-liang/GoKit/utils"
+	"github.com/fengyuan-liang/GoKit/utils/numberUtil"
 )
 
 type Stream[In any, Out any] struct {
@@ -30,12 +30,11 @@ func (s *Stream[In, Out]) Map(m func(ele In) Out) IStream[In, Out] {
 	if s.mapCnt != 0 {
 		panic("Only allow map once")
 	}
-	mapedData := make([]Out, 0)
+	mappedData := make([]Out, 0)
 	for _, datum := range s.Data {
-		mapedData = append(mapedData, m(datum))
+		mappedData = append(mappedData, m(datum))
 	}
-	// 这里有问题
-	s.outData = mapedData
+	s.outData = mappedData
 	s.mapCnt += 1
 	return s
 }
@@ -61,6 +60,11 @@ func (s *Stream[In, Out]) ForEach(action func(ele Out)) {
 }
 
 func (s *Stream[In, Out]) Sort(compareFunc ...collection.CompareFunc[Out]) IStream[In, Out] {
+	if s.mapCnt == 0 {
+		s.Map(func(element In) Out {
+			return (any)(element).(Out)
+		})
+	}
 	if len(s.outData) < 2 {
 		return s
 	}
@@ -75,11 +79,11 @@ func (s *Stream[In, Out]) Sort(compareFunc ...collection.CompareFunc[Out]) IStre
 }
 
 func (s *Stream[In, Out]) Limit(cnt int) IStream[In, Out] {
-	s.Data = s.Data[:utils.Min(cnt, len(s.Data))]
+	s.Data = s.Data[:numberUtil.Min(cnt, len(s.Data))]
 	return s
 }
 
 func (s *Stream[In, Out]) Skip(cnt int) IStream[In, Out] {
-	s.Data = s.Data[utils.Min(cnt, len(s.Data)):]
+	s.Data = s.Data[numberUtil.Min(cnt, len(s.Data)):]
 	return s
 }

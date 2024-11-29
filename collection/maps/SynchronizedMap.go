@@ -69,7 +69,7 @@ func (s *SynchronizedMap[K, V]) KeySet() []K {
 	return s.m.KeySet()
 }
 
-// Values returns a slice of all values in the map
+// Values return a slice of all values in the map
 func (s *SynchronizedMap[K, V]) Values() []V {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
