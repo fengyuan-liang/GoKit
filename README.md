@@ -223,3 +223,10 @@ $ go test -run TestSliceToMap
 PASS
 ok      GoKit/utils     0.176s
 ```
+
+## 5. 更完整的库
+
+当然上述的数据结构只是笔者自用，请勿在生产项目使用，您可以在下面的仓库中找到更加合适的
+
+- https://github.com/emirpasic/gods
+

@@ -5,9 +5,6 @@
 package stream
 
 func Of[In any, Out any](elements []In) IStream[In, Out] {
-	if len(elements) == 0 {
-		return nil
-	}
 	stream := new(Stream[In, Out])
 	stream.Data = elements
 	return stream
